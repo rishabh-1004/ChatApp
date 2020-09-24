@@ -41,7 +41,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             height: 20,
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: EdgeInsets.symmetric(horizontal: 20),
             child: Material(
                 elevation: 5.0,
                 shape: RoundedRectangleBorder(
