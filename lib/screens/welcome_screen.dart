@@ -1,8 +1,11 @@
+import 'package:chat_app/screens/register_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../widgets/CustomButton.dart';
 import '../screens/login_screen.dart';
+import '../screens/register_screen.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'WelcomeScreen';
@@ -11,7 +14,26 @@ class WelcomeScreen extends StatefulWidget {
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen>
+    with SingleTickerProviderStateMixin {
+  AnimationController animationController;
+  Animation animate;
+
+  @override
+  void initState() {
+    super.initState();
+
+    animationController = AnimationController(
+        duration: Duration(seconds: 1), vsync: this, upperBound: 1);
+    animationController.forward();
+
+    animate =
+        CurvedAnimation(parent: animationController, curve: Curves.bounceIn);
+    animationController.addListener(() {
+      setState(() {});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,14 +45,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                child: Image.asset('images/logo.png'),
-                height: 70,
-                width: 70,
+              Hero(
+                tag: 'logo',
+                child: Container(
+                  child: Image.asset('images/logo.png'),
+                  height: animationController.value * 100,
+                  width: 70,
+                ),
               ),
-              Text(
-                "Chat App",
-                style: TextStyle(
+              TypewriterAnimatedTextKit(
+                text: ["Chat App"],
+                textStyle: TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
@@ -53,7 +78,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           CustomButtom(
             buttonName: 'Register',
             buttonUse: () {
-              print("Registerd");
+              Navigator.pushNamed(context, RegisterScreen.id);
             },
           ),
         ],

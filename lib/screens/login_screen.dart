@@ -1,6 +1,8 @@
+import 'package:chat_app/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 import '../widgets/CustomTextField.dart';
 import '../widgets/CustomButton.dart';
+import 'chat_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   static const id = 'Login Screen';
@@ -20,10 +22,13 @@ class _LoginScreenState extends State<LoginScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Container(
-            height: 200,
-            width: 100,
-            child: Image.asset('images/logo.png'),
+          Hero(
+            tag: 'logo',
+            child: Container(
+              height: 200,
+              width: 100,
+              child: Image.asset('images/logo.png'),
+            ),
           ),
           SizedBox(
             height: 20,
@@ -43,6 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
           CustomButtom(
             buttonName: 'Login',
             buttonUse: () {
+              Navigator.pushNamed(context, ChatScreen.id);
               print('Login Button pressed');
             },
           ),

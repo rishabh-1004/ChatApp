@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "957845677796",
+    "firebase_url": "https://chat-app-406d4.firebaseio.com",
+    "project_id": "chat-app-406d4",
+    "storage_bucket": "chat-app-406d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957845677796:android:03b64af0911d4e45552ef1",
+        "android_client_info": {
+          "package_name": "com.rishabh.chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957845677796-ecjtv0vvnpdj1scdb3n21djo2lqmref2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9YLoiwajKBdMz7Whjc42shm1fINIJdv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "957845677796-ecjtv0vvnpdj1scdb3n21djo2lqmref2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
