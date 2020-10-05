@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../widgets/CustomTextField.dart';
 import '../widgets/CustomButton.dart';
 import 'chat_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatefulWidget {
   static const id = 'Login Screen';
@@ -13,6 +14,9 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   String email;
+  String password;
+
+  FirebaseAuth _user = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -38,13 +42,19 @@ class _LoginScreenState extends State<LoginScreen> {
               hint: 'Email',
               visibility: false,
               textInput: (value) {
-                setState(() {});
+                setState(() {
+                  email = value;
+                });
               }),
           CustomTextField(
-            iconType: Icons.lock_open,
-            hint: 'Password',
-            visibility: true,
-          ),
+              iconType: Icons.lock_open,
+              hint: 'Password',
+              visibility: true,
+              textInput: (value) {
+                setState(() {
+                  password = value;
+                });
+              }),
           CustomButtom(
             buttonName: 'Login',
             buttonUse: () {
